@@ -3,10 +3,18 @@
 <h1>Listing Gists</h1>
 <% @gists.each do |gist| %>
     <div class="row-fluid">
-      <div class="page-header"><h4><strong> <%= gist[:user]||"Anonymous"%> /
+      <div class="page-header"><h4><strong>
+        <%=if @gist[:owner].nil?
+             "Anonymous"
+           else
+             @gist[:owner][:login]
+           end%> /
         <% gist[:files].each { |k,v|%>
             <%= v[:filename]%>
         <%}%>
+        <%= link_to gist_path(gist[:id]) do%>
+            <button class="btn btn-primary">View</button>
+        <%end%>
       </strong>
       </h4>
       </div>

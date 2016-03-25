@@ -1,3 +1,19 @@
 <p id="notice"><%= notice %></p>
-<!--<= link_to 'Edit', edit_gist_path(@gist) %> |
-<= link_to 'Back', gists_path %>-->
+<div class="row">
+  <div class="page-header">
+    <h2><%=if @gist[:owner].nil?
+             "Anonymous"
+           else
+             @gist[:owner][:login]
+           end%> /
+      <%@gist[:files].each { |k,v| %>
+          <%=v[:filename]%>
+      <%}%></h2>
+  </div>
+</div>
+<div id="desc" class="row">
+  <%= @gist[:description]%>
+</div>
+<div class="row">
+  <code data-gist-id="<%=@gist[:id]%>"></code>
+</div>
