@@ -1,5 +1,5 @@
 require 'gists_from_github'
-class Gist
+class GistModel
   include ActiveModel::Model
 
   def self.all

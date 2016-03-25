@@ -14,4 +14,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require gist-embed
 //= require_tree .

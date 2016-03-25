@@ -28,7 +28,7 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap-datepicker-rails'
 #----------------------------------------------------------
 
-
+#Displaying gist with git format
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
