@@ -15,6 +15,7 @@ class GistsFromGitHub
         end
       }
     end
+    nil
   end
 
   def self.users
