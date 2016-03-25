@@ -5,13 +5,15 @@ class GistsController < ApplicationController
   # GET /gists.json
   def index
     @gists = Gist.all
-    render json: @gists
+    #byebug
+    a = 1
+    #render json: @gists
   end
 
   # GET /gists/1
   # GET /gists/1.json
   def show
-    render json: @gist
+    #render json: @gist
   end
 
   # GET /gists/new
