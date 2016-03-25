@@ -37,7 +37,7 @@ gem 'font-awesome-rails'
 gem 'annotate'
 
 #Display GitHub's style gist
-#gem 'gist-embed-rails'
+
 # Javascript interpreter
 gem 'execjs'
 

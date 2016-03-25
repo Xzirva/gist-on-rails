@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e76e8ec0-be2a-4a9b-b59c-d043d486a934" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/6hKgIGQrT5UsGHI11jMlhPo2_5Wkz2vQDSRg7uRbiC0.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/6hKgIGQrT5UsGHI11jMlhPo2_5Wkz2vQDSRg7uRbiC0.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/7tAlLWZxfKrv89lUcMv6o57h77it9slmGNZqRGmD7ao.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/7tAlLWZxfKrv89lUcMv6o57h77it9slmGNZqRGmD7ao.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/8x-1LB_mkr1zCJYwR5c1ygxStjj_Qp0-k7Xjd3DcRr8.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/8x-1LB_mkr1zCJYwR5c1ygxStjj_Qp0-k7Xjd3DcRr8.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/9YEyXL7on5mFP9Dw_5nkr1tDtQwoxUXwIH1L3ZM92GU.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/9YEyXL7on5mFP9Dw_5nkr1tDtQwoxUXwIH1L3ZM92GU.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/A7PhiXBZJ-j97s30OATm-7OJrgxPMjh8UAcgssOsU9Q.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/A7PhiXBZJ-j97s30OATm-7OJrgxPMjh8UAcgssOsU9Q.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/F6vsKnnZ50WIb5pllGKXCgvfdqUk8WFwADFj7Z63iz8.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/F6vsKnnZ50WIb5pllGKXCgvfdqUk8WFwADFj7Z63iz8.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Jr5xe1Es0bsj0Xn1uAJO5zSllicuR36My4Uy7EvPLtg.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Jr5xe1Es0bsj0Xn1uAJO5zSllicuR36My4Uy7EvPLtg.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/LASKRFpeLo1gq5JBxdvpxqB3zQ8tHEV9Pj_W7fco8-o.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/LASKRFpeLo1gq5JBxdvpxqB3zQ8tHEV9Pj_W7fco8-o.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Lgv1qTKhOuGm6R86qhTx6aDLCe4YKneOT-DaJrkBuOQ.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/Lgv1qTKhOuGm6R86qhTx6aDLCe4YKneOT-DaJrkBuOQ.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/M58TB_9BqvSrAKFtcM898httE7U0Mk5MHI4EV4M0Fx4.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/M58TB_9BqvSrAKFtcM898httE7U0Mk5MHI4EV4M0Fx4.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/P8biz3EVm1VZixJsCV3O1O-HxodrLZ_8y5-kCSf5VIY.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/P8biz3EVm1VZixJsCV3O1O-HxodrLZ_8y5-kCSf5VIY.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/PAbrhCbt3e8nqSuSfZQu8HaokaJONsIsXU42H0cnEKg.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/PAbrhCbt3e8nqSuSfZQu8HaokaJONsIsXU42H0cnEKg.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/UEpCBdwwfOJXek5pPRHDiHm2QP5q0ljEuhxPOX3d9Yk.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/UEpCBdwwfOJXek5pPRHDiHm2QP5q0ljEuhxPOX3d9Yk.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/WFtgOAFwScWAU8S4K5ngDKMH9vZWa_i-ehPkCrQxshY.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/WFtgOAFwScWAU8S4K5ngDKMH9vZWa_i-ehPkCrQxshY.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/jwRrUyl0PWyfXKOlURQrbghDowVqbEiJUtpEJk8BHaA.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/jwRrUyl0PWyfXKOlURQrbghDowVqbEiJUtpEJk8BHaA.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/loSYRsuvp9ErOsjkHORvEoJ7_Cx9AUuWqT6LEHHrU4o.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/loSYRsuvp9ErOsjkHORvEoJ7_Cx9AUuWqT6LEHHrU4o.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/oTCmeOqDodbU1Ez5cEYuIIdg0Kr6PQRD3DaQo78BwKs.cache" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v3.0/oTCmeOqDodbU1Ez5cEYuIIdg0Kr6PQRD3DaQo78BwKs.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_navigation.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_navigation.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gist-on-rails.iml" afterPath="$PROJECT_DIR$/.idea/gist-on-rails.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/pids/server.pid" afterPath="$PROJECT_DIR$/tmp/pids/server.pid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gist-on-rails.iws" />
@@ -88,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7883212">
-              <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -739,7 +714,7 @@
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7883212">
-          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
