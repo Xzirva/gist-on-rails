@@ -1,28 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header"><h1>Listing Gists</h1>
+  <%if params[:controller]=="search"%>
+  <small>Search Results</small>
+  <%end%>
+</div>
 
-<h1>Listing Gists</h1>
-<% @gists.each do |gist| %>
-    <div class="row-fluid">
-      <div class="page-header"><h4><strong>
-        <%=if gist[:owner].nil?
-             "Anonymous"
-           else
-             gist[:owner][:login]
-           end%> /
-        <% gist[:files].each { |k,v|%>
-            <%= v[:filename]%>
-        <%}%>
-        <%= link_to gist_path(gist[:id]) do%>
-            <button class="btn btn-primary">View</button>
-        <%end%>
-      </strong>
-      </h4>
-      </div>
+<%if flash[:notice]%>
+    <p id="notice">
+      <%= notice %>
+    </p>
+<%end%>
 
-      <code data-gist-id="<%=gist[:id]%>" data-gist-line="1-4"></code>
-      <!--<td><= link_to 'Edit', edit_gist_path(gist) %></td>-->
-      <!--<td><= link_to 'Destroy', gist, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-<% end %>
+<%unless @gists.nil?%>
+    <% @gists.each do |gist| %>
+        <div class="row-fluid">
+          <div class="page-header"><h4><strong>
+            <%=if gist[:owner].nil?
+                 "Anonymous"
+               else
+                 gist[:owner][:login]
+               end%> /
+            <% gist[:files].each { |k,v|%>
+                <%= v[:filename]%>
+            <%}%>
+            <%= link_to gist_path(gist[:id]) do%>
+                <button class="btn btn-primary">View</button>
+            <%end%>
+          </strong>
+          </h4>
+          </div>
+
+          <code data-gist-id="<%=gist[:id]%>" data-gist-line="1-4"></code>
+          <!--<td><= link_to 'Edit', edit_gist_path(gist) %></td>-->
+          <!--<td><= link_to 'Destroy', gist, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+    <% end %>
+<%end%>
 </div>
 <br>
 

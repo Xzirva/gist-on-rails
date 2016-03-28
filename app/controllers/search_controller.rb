@@ -22,12 +22,14 @@ class SearchController < ApplicationController
   def search
     if params[:search_query].nil? || params[:search_query].size == 0
       #notice
+      flash[:notice] = 'Error: Query string is empty!'
       else
       find(params[:search_query])
       #render json: @results
+      flash[:notice] = "#{@results.size} result(s) were found"
       @gists = @results
-      render 'gists/index'
     end
+    render 'gists/index'
   end
 
   def find(value)
