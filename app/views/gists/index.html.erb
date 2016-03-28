@@ -4,10 +4,10 @@
 <% @gists.each do |gist| %>
     <div class="row-fluid">
       <div class="page-header"><h4><strong>
-        <%=if @gist[:owner].nil?
+        <%=if gist[:owner].nil?
              "Anonymous"
            else
-             @gist[:owner][:login]
+             gist[:owner][:login]
            end%> /
         <% gist[:files].each { |k,v|%>
             <%= v[:filename]%>

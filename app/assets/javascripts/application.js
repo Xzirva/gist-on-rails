@@ -12,8 +12,7 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require jquery_ujs
+//= require jquery.min
 //= require bootstrap
 //= require gist-embed.min
 //= require_tree .

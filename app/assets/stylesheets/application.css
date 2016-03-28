@@ -1,6 +1,7 @@
+@import "jquery-ui.css";
 @import "_bootstrap.scss";
+@import "custom.css";
 @import "bootstrap-datepicker3.css";
-@import "bootstrap-datetimepicker.min.css";
 @import "bootstrap-select.css";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
