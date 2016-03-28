@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap as CSS framework
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap-select-rails'
 
 # Icons

@@ -41,4 +41,8 @@ class SearchController < ApplicationController
     }
   end
 
+  def specific_search
+    render json: params
+  end
+
 end

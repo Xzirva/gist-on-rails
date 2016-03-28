@@ -14,5 +14,6 @@
 
 //= require jquery.min
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require gist-embed.min
 //= require_tree .

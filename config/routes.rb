@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :gists
   match '/load_search_data',          to: 'search#load_search_data',          via: :get
-  match '/search',          to: 'search#search',          via: :post
-  match '/search',          to: 'search#search',          via: :get
-
+  match '/search',                    to: 'search#search',                    via: :post
+  match '/search',                    to: 'search#search',                    via: :get
+  match '/specific_search',           to: 'search#specific_search',           via: :post
+  match '/specific_search',           to: 'search#specific_search',           via: :get
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
