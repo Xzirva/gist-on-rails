@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'gists#index'
   resources :categories
   resources :gists
   match '/load_search_data',          to: 'search#load_search_data',          via: :get
