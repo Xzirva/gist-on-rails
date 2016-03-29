@@ -9,6 +9,18 @@
   <strong>Description:</strong>
   <%= @category.description %>
 </p>
+<div class="row">
+  <strong>Gists:</strong>
+  <%@my_gists.each { |g| %>
+      <%=render partial: 'gists/gist_header', locals: {gist: g}%>
+      <div id="desc" class="row">
+        <%= g[:description]%>
+      </div>
+      <div class="row">
+        <code data-gist-id="<%=g[:id]%>"></code>
+      </div>
+  <%}%>
+</div>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

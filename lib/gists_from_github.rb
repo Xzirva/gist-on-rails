@@ -27,12 +27,39 @@ class GistsFromGitHub
 
   def self.gists_with_details
     Rails.cache.fetch('gists_with_details', expire_in: 1.minutes) do
-    vgists = gists
-    gists_with_d = Array.new
-    vgists.each { |g|
-      gists_with_d[gists_with_d.size] = JSON.parse(get_from_github_with_details(g[:id]), :symbolize_names => true)
-    }
+      vgists = gists
+      gists_with_d = Array.new
+      vgists.each { |g|
+        gists_with_d[gists_with_d.size] = JSON.parse(get_from_github_with_details(g[:id]), :symbolize_names => true)
+      }
       gists_with_d
+    end
+  end
+
+  def self.gists_by_ids
+    Rails.cache.fetch('gists_by_ids', expire_in: 1.minutes) do
+      vgists = gists
+      gists_ids = Array.new
+      vgists.each { |g|
+        gists_ids[gists_ids.size] = g[:id]
+      }
+      gists_ids
+    end
+  end
+
+  def self.gists_by_description
+    Rails.cache.fetch('gists_by_description', expire_in: 1.minutes) do
+      vgists = gists
+      gists_ds = Array.new
+      vgists.each { |g|
+        if g[:owner].nil?
+          owner = "Anonymous"
+        else
+          owner = g[:owner][:login]
+        end
+        gists_ds[gists_ds.size] = ["#{owner}/#{g[:description]}", g[:id]]
+      }
+      gists_ds
     end
   end
 
@@ -65,7 +92,6 @@ class GistsFromGitHub
         JSON.parse(get_from_github(v), :symbolize_names => true)
       end
     }
-
   end
 
 

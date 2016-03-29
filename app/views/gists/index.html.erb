@@ -2,7 +2,7 @@
 
 <div class="page-header"><h1>Listing Gists</h1>
   <%if params[:controller]=="search"%>
-  <small>Search Results</small>
+      <small>Search Results</small>
   <%end%>
 </div>
 
@@ -15,28 +15,14 @@
 <%unless @gists.nil?%>
     <% @gists.each do |gist| %>
         <div class="row-fluid">
-          <div class="page-header"><h4><strong>
-            <%=if gist[:owner].nil?
-                 "Anonymous"
-               else
-                 gist[:owner][:login]
-               end%> /
-            <% gist[:files].each { |k,v|%>
-                <%= v[:filename]%>
-            <%}%>
-            <%= link_to gist_path(gist[:id]) do%>
-                <button class="btn btn-primary">View</button>
-            <%end%>
-          </strong>
-          </h4>
-          </div>
+         <%=render partial: 'gists/gist_header', locals: {gist: gist}%>
 
           <code data-gist-id="<%=gist[:id]%>" data-gist-line="1-4"></code>
-          <!--<td><= link_to 'Edit', edit_gist_path(gist) %></td>-->
-          <!--<td><= link_to 'Destroy', gist, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </div>
+        <!--<td><= link_to 'Edit', edit_gist_path(gist) %></td>-->
+        <!--<td><= link_to 'Destroy', gist, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
     <% end %>
 <%end%>
-</div>
 <br>
 
 <!--<= link_to 'New Gist', new_gist_path %>-->

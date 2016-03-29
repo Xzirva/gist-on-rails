@@ -26,6 +26,14 @@ class GistModel
     gist[:comments].nil? || gist[:comments] == 0
   end
 
+  def self.pluck(_column)
+    if _column!= :id && _column!=:description
+      raise 'Cant proceed this operation: supported column: id, description'
+    else
+      GistsFromGitHub.gists_by_ids if _column== :id
+      GistsFromGitHub.gists_by_description if _column== :description
+    end
+  end
 #def self.new
 
 #end

@@ -1,0 +1,15 @@
+<div class="page-header"><h4><strong>
+  <%=if gist[:owner].nil?
+       "Anonymous"
+     else
+       gist[:owner][:login]
+     end%> /
+  <% gist[:files].each { |k,v|%>
+      <%= v[:filename]%>
+  <%}%>
+  <%= link_to gist_path(gist[:id]) do%>
+      <button class="btn btn-primary">View</button>
+  <%end%>
+</strong>
+</h4>
+</div>

@@ -1,15 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="page-header">
-    <h2><%=if @gist[:owner].nil?
-             "Anonymous"
-           else
-             @gist[:owner][:login]
-           end%> /
-      <%@gist[:files].each { |k,v| %>
-          <%=v[:filename]%>
-      <%}%></h2>
-  </div>
+  <%=render partial: 'gists/gist_header', locals: {gist: @gist}%>
 </div>
 <div id="desc" class="row">
   <%= @gist[:description]%>
