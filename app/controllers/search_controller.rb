@@ -50,23 +50,32 @@ class SearchController < ApplicationController
     #  }
     #end
 
-    unless params[:fork_of].nil?
-      @results.each { |r|
-        specific_results[specific_results.size] = r unless GistModel.is_fork_of?(r)
-      }
-    end
 
-    unless params[:forks].nil?
-      @results.each { |r|
-        specific_results[specific_results.size] = r unless GistModel.has_forks?(r)
-      }
-    end
 
-    unless params[:commented].nil?
-      @results.each { |r|
+
+
+
+    @results.each { |r|
+      unless params[:categories].nil? && params[:categories].size == 0
+        params[:categories].each{ |c|
+          check = GistsByCategory.find_by_category_id_and_gist_id(Integer(c,10),r[:id])
+          unless check.nil?
+            specific_results[specific_results.size] = r
+          end
+        }
+      end
+      unless params[:commented].nil?
         specific_results[specific_results.size] = r unless GistModel.is_commented?(r)
-      }
-    end
+      end
+      unless params[:forks].nil?
+        specific_results[specific_results.size] = r unless GistModel.has_forks?(r)
+      end
+      unless params[:fork_of].nil?
+        specific_results[specific_results.size] = r unless GistModel.is_fork_of?(r)
+      end
+    }
+
+
 
 
     #unless params[:from].nil?
@@ -96,6 +105,6 @@ class SearchController < ApplicationController
   end
 
   def no_specific_params
-    params[:fork_of].nil? && params[:forks].nil? && params[:commented].nil?
+    params[:fork_of].nil? && params[:forks].nil? && params[:commented].nil? && params[:categories].nil? && params[:categories].size == 0
   end
 end
