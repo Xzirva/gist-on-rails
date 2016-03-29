@@ -7,7 +7,7 @@ class GistsFromGitHub
     if _params[:id].nil? || _params[:id].size == 0
       raise "Resource not Found : Missing id"
     else
-      all = gists
+      all = gists_with_details
       all.each { |v|
 
         if v[:id] == _params[:id]
@@ -25,10 +25,24 @@ class GistsFromGitHub
   def self.gists_by_user(_params)
   end
 
+  def self.gists_with_details
+    Rails.cache.fetch('gists_with_details', expire_in: 1.minutes) do
+    vgists = gists
+    gists_with_d = Array.new
+    vgists.each { |g|
+      gists_with_d[gists_with_d.size] = JSON.parse(get_from_github_with_details(g[:id]), :symbolize_names => true)
+    }
+      gists_with_d
+    end
+  end
+
   def self.get_from_github(resource)
     RestClient.get "#{base_url}/#{resource}"
   end
 
+  def self.get_from_github_with_details(id)
+    RestClient.get "#{base_url}/gists/#{id}"
+  end
   #def self.reset_cache(resource,expiration)
   #  Rails.cache.write(resource,get_from_github(resource), :expires_in => expiration.seconds)
   #end
@@ -51,7 +65,10 @@ class GistsFromGitHub
         JSON.parse(get_from_github(v), :symbolize_names => true)
       end
     }
+
   end
+
+
 
   def self.get_resource(resource)
     initialize_cache

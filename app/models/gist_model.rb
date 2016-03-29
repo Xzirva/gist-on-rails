@@ -3,7 +3,7 @@ class GistModel
   include ActiveModel::Model
 
   def self.all
-    GistsFromGitHub.gists
+    GistsFromGitHub.gists_with_details
   end
 
   def self.find(id)

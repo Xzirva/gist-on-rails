@@ -23,7 +23,7 @@ class SearchController < ApplicationController
     if params[:search_query].nil? || params[:search_query].size == 0
       #notice
       flash[:notice] = 'Error: Query string is empty!'
-      else
+    else
       find(params[:search_query])
       #render json: @results
       flash[:notice] = "#{@results.size} result(s) were found"
@@ -41,8 +41,60 @@ class SearchController < ApplicationController
     }
   end
 
-  def specific_search
-    render json: params
+  def specific_search_process
+    specific_results = Array.new
+    #unless params[:public].nil?
+    #  @results.each { |r|
+    #    specific_results[specific_results.size] = r if r[:public]
+    #  }
+    #end
+
+    unless params[:fork_of].nil?
+      @results.each { |r|
+        specific_results[specific_results.size] = r unless r[:fork_of].nil? || r[:fork_of].size == 0
+      }
+    end
+
+    unless params[:forks].nil?
+      @results.each { |r|
+        specific_results[specific_results.size] = r unless r[:forks].nil? || r[:forks].size == 0
+      }
+    end
+
+    unless params[:commented].nil?
+      @results.each { |r|
+        specific_results[specific_results.size] = r unless r[:comments].nil? || r[:comments] == 0
+      }
+    end
+
+    #unless params[:from].nil?
+    #  @from = Date.parse(params[:from])
+    #end
+
+    #unless params[:to].nil?
+    #  @to = Date.parse(params[:to])
+    #end
+    #unless params[:from].nil? && params[:to].nil?
+    #  @results.each { |r|
+    #    specific_results[specific_results.size] = r if !@from.nil? && Date.parse(r[:created_at]) > @from
+    #  }
+    #end
+    specific_results
   end
 
+  def specific_search
+    if no_specific_params
+      redirect_to search_path(search_query: params[:specific_search_query])
+      return
+    else
+      find(params[:specific_search_query])
+      @gists = specific_search_process
+      flash[:notice] = "#{@gists.size} result(s) were found"
+      render 'gists/index'
+    end
+  end
+
+  def no_specific_params
+    params[:fork_of].nil? && params[:forks].nil? && params[:commented].nil?
+  end
 end
