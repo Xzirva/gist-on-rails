@@ -39,6 +39,7 @@ class SearchController < ApplicationController
         @results[@results.size] = GistModel.find(v[:value])
       end
     }
+    @results.uniq!
   end
 
   def specific_search_process
@@ -51,21 +52,14 @@ class SearchController < ApplicationController
 
     unless params[:fork_of].nil?
       @results.each { |r|
-        specific_results[specific_results.size] = r unless r[:fork_of].nil? || r[:fork_of].size == 0
+        unless r[:fork_of].nil? || r[:fork_of].size == 0
+          #byebug
+          specific_results[specific_results.size] = r
+        end
       }
     end
 
-    unless params[:forks].nil?
-      @results.each { |r|
-        specific_results[specific_results.size] = r unless r[:forks].nil? || r[:forks].size == 0
-      }
-    end
 
-    unless params[:commented].nil?
-      @results.each { |r|
-        specific_results[specific_results.size] = r unless r[:comments].nil? || r[:comments] == 0
-      }
-    end
 
     #unless params[:from].nil?
     #  @from = Date.parse(params[:from])
@@ -85,7 +79,6 @@ class SearchController < ApplicationController
   def specific_search
     if no_specific_params
       redirect_to search_path(search_query: params[:specific_search_query])
-      return
     else
       find(params[:specific_search_query])
       @gists = specific_search_process
