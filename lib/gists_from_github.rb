@@ -57,7 +57,12 @@ class GistsFromGitHub
         else
           owner = g[:owner][:login]
         end
-        gists_ds[gists_ds.size] = ["#{owner}/#{g[:description]}", g[:id]]
+        if g[:description].nil? || g[:description].size == 0
+          description = "Untitled"
+        else
+          description = g[:description]
+        end
+        gists_ds[gists_ds.size] = ["<#{description[0..100]}>... by <#{owner}>", g[:id]]
       }
       gists_ds
     end

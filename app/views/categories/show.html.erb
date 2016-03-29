@@ -1,16 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="page-header"><h1>
   <strong>Title:</strong>
   <%= @category.title %>
-</p>
+  <%= link_to edit_category_path(@category) do%>
+      <button class="btn btn-primary">Edit</button>
+  <%end%>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+  <%= link_to categories_path  do%>
+      <button class="btn btn-default">All</button>
+  <%end%>
+</h1>
+
+</div>
+
+<strong>Description:</strong>
+<%= @category.description %>
 <div class="row">
-  <strong>Gists:</strong>
+  <div class="page-header"><h2>
+    GISTS:
+  </h2>
+  </div>
+
   <%@my_gists.each { |g| %>
       <%=render partial: 'gists/gist_header', locals: {gist: g}%>
       <div id="desc" class="row">
@@ -22,5 +33,3 @@
   <%}%>
 </div>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>

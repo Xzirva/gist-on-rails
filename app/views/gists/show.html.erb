@@ -5,6 +5,19 @@
 <div id="desc" class="row">
   <%= @gist[:description]%>
 </div>
+<%unless @my_categories.nil?%>
+    <div id="desc" class="row">
+      <strong>Tags(Categories):</strong>
+      <%= link_to category_path(@my_categories[0].id) do%>
+          <%= @my_categories[0].title%>
+      <%end%>
+      <% @my_categories.drop(1).each { |v|%>
+          ,<%= link_to category_path(v.id) do%>
+              <%= v.title%>
+          <%end%>
+      <%}%>
+    </div>
+<%end%>
 <div class="row">
   <code data-gist-id="<%=@gist[:id]%>"></code>
 </div>

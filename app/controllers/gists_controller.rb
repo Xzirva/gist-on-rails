@@ -68,6 +68,12 @@ class GistsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_gist
       @gist = GistModel.find(params[:id])
+      @my_categories = Array.new
+      categories_ids = GistsByCategory.where(gist_id: params[:id]).pluck(:category_id)
+      categories_ids.each { |v|
+        @my_categories[@my_categories.size] = Category.find(v)
+      }
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
