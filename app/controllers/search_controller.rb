@@ -52,13 +52,21 @@ class SearchController < ApplicationController
 
     unless params[:fork_of].nil?
       @results.each { |r|
-        unless r[:fork_of].nil? || r[:fork_of].size == 0
-          #byebug
-          specific_results[specific_results.size] = r
-        end
+        specific_results[specific_results.size] = r unless GistModel.is_fork_of?(r)
       }
     end
 
+    unless params[:forks].nil?
+      @results.each { |r|
+        specific_results[specific_results.size] = r unless GistModel.has_forks?(r)
+      }
+    end
+
+    unless params[:commented].nil?
+      @results.each { |r|
+        specific_results[specific_results.size] = r unless GistModel.is_commented?(r)
+      }
+    end
 
 
     #unless params[:from].nil?
@@ -73,7 +81,7 @@ class SearchController < ApplicationController
     #    specific_results[specific_results.size] = r if !@from.nil? && Date.parse(r[:created_at]) > @from
     #  }
     #end
-    specific_results
+    specific_results.uniq
   end
 
   def specific_search

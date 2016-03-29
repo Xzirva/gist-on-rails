@@ -14,17 +14,28 @@ class GistModel
 
   end
 
+  def self.is_fork_of?(gist)
+    gist[:fork_of].nil? || gist[:fork_of].size == 0
+  end
 
-  #def self.new
+  def self.has_forks?(gist)
+    gist[:forks].nil? || gist[:forks].size == 0
+  end
 
-  #end
+  def self.is_commented?(gist)
+    gist[:comments].nil? || gist[:comments] == 0
+  end
 
-  #def destroy
+#def self.new
 
-  #end
+#end
 
-  #def update
+#def destroy
 
-  #end
+#end
+
+#def update
+
+#end
 
 end
