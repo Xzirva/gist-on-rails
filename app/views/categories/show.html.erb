@@ -23,13 +23,15 @@
   </div>
   <%unless @my_gists.nil? || @my_gists.size == 0%>
       <%@my_gists.each { |g| %>
-          <%=render partial: 'gists/gist_header', locals: {gist: g}%>
-          <div id="desc" class="row">
-            <%= g[:description]%>
-          </div>
-          <div class="row">
-            <code data-gist-id="<%=g[:id]%>"></code>
-          </div>
+          <%unless @g.nil? || @g.size == 0%>
+              <%=render partial: 'gists/gist_header', locals: {gist: g}%>
+              <div id="desc" class="row">
+                <%= g[:description]%>
+              </div>
+              <div class="row">
+                <code data-gist-id="<%=g[:id]%>"></code>
+              </div>
+          <%end%>
       <%}%>
   <%end%>
 </div>
