@@ -119,7 +119,7 @@ class GistsController < ApplicationController
       params[:categories].each { |c|
         gists_by_categories[gists_by_categories.size] = {category_id: c, gist_id: params[:id]}
       }
-      gists_by_categories
+      return gists_by_categories
     end
     []
   end

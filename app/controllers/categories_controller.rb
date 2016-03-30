@@ -95,7 +95,7 @@ class CategoriesController < ApplicationController
       params[:gists].each { |g|
         gists[gists.size] = {gist_id:g}
       }
-      gists
+      return gists
     end
     []
   end
