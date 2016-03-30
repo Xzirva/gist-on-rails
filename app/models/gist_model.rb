@@ -34,6 +34,15 @@ class GistModel
       GistsFromGitHub.gists_by_description if _column== :description
     end
   end
+
+  def self.categories(gist)
+    my_categories = Array.new
+    categories_ids = GistsByCategory.where(gist_id: gist[:id]).pluck(:category_id)
+    categories_ids.each { |v|
+      my_categories[my_categories.size] = Category.find(v)
+    }
+    my_categories
+  end
 #def self.new
 
 #end
