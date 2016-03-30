@@ -12,6 +12,11 @@ class GistsController < ApplicationController
   # GET /gists/1
   # GET /gists/1.json
   def show
+    if @gist.nil? || @gist.size == 0
+      respond_to do |format|
+        format.html { redirect_to gists_path, notice: 'Resource not found.' }
+      end
+    end
     #render json: @GistModel
   end
 
@@ -65,19 +70,19 @@ class GistsController < ApplicationController
   #end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_gist
-      @gist = GistModel.find(params[:id])
-      @my_categories = Array.new
-      categories_ids = GistsByCategory.where(gist_id: params[:id]).pluck(:category_id)
-      categories_ids.each { |v|
-        @my_categories[@my_categories.size] = Category.find(v)
-      }
+  # Use callbacks to share common setup or constraints between actions.
+  def set_gist
+    @gist = GistModel.find(params[:id])
+    @my_categories = Array.new
+    categories_ids = GistsByCategory.where(gist_id: params[:id]).pluck(:category_id)
+    categories_ids.each { |v|
+      @my_categories[@my_categories.size] = Category.find(v)
+    }
 
-    end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def gist_params
-      #params.fetch(:GistModel, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def gist_params
+    #params.fetch(:GistModel, {})
+  end
 end
