@@ -68,11 +68,11 @@ class GistsFromGitHub
   end
 
   def self.get_from_github(resource)
-    RestClient.get "#{base_url}/#{resource}?access_token=0aaf3131b0d74d99b25c6bc098d73757ee7f5988"
+    RestClient.get "#{base_url}/#{resource}"
   end
 
   def self.get_from_github_with_details(id)
-    RestClient.get "#{base_url}/gists/#{id}?access_token=0aaf3131b0d74d99b25c6bc098d73757ee7f5988"
+    RestClient.get "#{base_url}/gists/#{id}"
   end
   #def self.reset_cache(resource,expiration)
   #  Rails.cache.write(resource,get_from_github(resource), :expires_in => expiration.seconds)
