@@ -1,9 +1,11 @@
 <div class="page-header"><h4><strong>
   <%=gist[:owner][:login] unless gist[:owner].nil?%>
   <%= '<Anonymous>' if gist[:owner].nil?%>/
-  <% gist[:files].each { |k,v|%>
-      <%= v[:filename]%>
-  <%}%>
+  <%unless gist[:files].nil?%>
+      <% gist[:files].each { |k,v|%>
+          <%= v[:filename]%>
+      <%}%>
+  <%end%>
   <%= link_to gist_path(gist[:id]) do%>
       <button class="btn btn-primary">View</button>
   <%end%>
