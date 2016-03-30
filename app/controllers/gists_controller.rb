@@ -49,11 +49,13 @@ class GistsController < ApplicationController
       end
       unless tag_params.nil? || tag_params.size == 0
         tag_params.each { |v|
-          gist_by_cat = GistsByCategory.create(category_id: v[:category_id], gist_id: v[:gist_id])
-          respond_to do |format|
-            format.html { redirect_to gist_path(@gist[:id]), notice: "Error: Something went wrong: #{gist_by_cat.errors[:base]}" }
+          gist_by_cat = GistsByCategory.new(category_id: v[:category_id], gist_id: v[:gist_id])
+          unless gist_by_cat.save
+            respond_to do |format|
+              format.html { redirect_to gist_path(@gist[:id]), notice: "Error: Something went wrong: #{gist_by_cat.errors[:base]}" }
+            end
+            return
           end
-          return
         }
       end
       respond_to do |format|
