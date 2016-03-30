@@ -13,18 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20160329161301) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "gists_by_categories", force: :cascade do |t|
-    t.string   "gist_id",     limit: 255, null: false
-    t.integer  "category_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "gist_id",     null: false
+    t.integer  "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "gists_by_categories", ["category_id"], name: "index_gists_by_categories_on_category_id", using: :btree
