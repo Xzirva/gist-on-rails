@@ -3,6 +3,7 @@
         $('#categories').select2({
             tokenSeparators: [',',' ']
         });
+        $('#categories').val(<%= @my_categories_ids.to_json.html_safe%>).trigger("change");
     });
 
 </script>

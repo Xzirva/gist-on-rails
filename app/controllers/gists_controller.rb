@@ -111,6 +111,10 @@ class GistsController < ApplicationController
   def set_gist
     @gist = GistModel.find(params[:id])
     @my_categories = GistModel.categories(@gist)
+    @my_categories_ids = Array.new
+    @my_categories.each { |v|
+      @my_categories_ids[@my_categories_ids.size] = v.id
+    }
   end
 
   def set_tagging_params

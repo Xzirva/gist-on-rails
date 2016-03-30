@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action 'my_gists', only: :show
+  before_action 'my_gists', only: [:show, :edit]
   before_action :set_gists, only: [:new, :create, :edit, :update]
   # GET /categories
   # GET /categories.json
@@ -99,10 +99,13 @@ class CategoriesController < ApplicationController
       gists
     end
   end
+
   def my_gists
     @my_gists = Array.new
+    @my_gists_ids = Array.new
     @category.gists_by_categories.each { |v|
       @my_gists[@my_gists.size] = GistModel.find(v.gist_id)
+      @my_gists_ids[@my_gists_ids.size] = v.gist_id
     }
   end
 

@@ -3,8 +3,8 @@
         $('#gists').select2({
             tokenSeparators: [',',' ']
         });
+        $('#gists').val(<%= @my_gists_ids.to_json.html_safe%>).trigger("change");
     });
-
 </script>
 <%= form_for(@category) do |f| %>
     <% if @category.errors.any? %>
