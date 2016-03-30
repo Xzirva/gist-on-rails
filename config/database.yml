@@ -15,7 +15,8 @@ default: &default
   pool: 5
   username: postgres
   password: 123456789
-  socket: /var/run/mysqld/mysqld.sock
+  timeout: 5000
+  #socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
