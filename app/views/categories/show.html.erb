@@ -21,7 +21,7 @@
     GISTS:
   </h2>
   </div>
-  <%unless @my_gists.nil?%>
+  <%unless @my_gists.nil? || @my_gists.size == 0%>
       <%@my_gists.each { |g| %>
           <%=render partial: 'gists/gist_header', locals: {gist: g}%>
           <div id="desc" class="row">
