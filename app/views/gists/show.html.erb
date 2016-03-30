@@ -5,7 +5,7 @@
 <div id="desc" class="row">
   <%= @gist[:description]%>
 </div>
-<%unless @my_categories.nil?%>
+<%unless @my_categories.nil? || @my_categories.size == 0%>
     <div id="desc" class="row">
       <strong>Tags(Categories):</strong>
       <%= link_to category_path(@my_categories[0].id) do%>
