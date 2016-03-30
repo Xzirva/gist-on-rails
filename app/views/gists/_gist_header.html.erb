@@ -1,14 +1,16 @@
-<div class="page-header"><h4><strong>
-  <%=gist[:owner][:login] unless gist[:owner].nil?%>
-  <%= '<Anonymous>' if gist[:owner].nil?%>/
-  <%unless gist[:files].nil?%>
-      <% gist[:files].each { |k,v|%>
-          <%= v[:filename]%>
-      <%}%>
-  <%end%>
-  <%= link_to gist_path(gist[:id]) do%>
-      <button class="btn btn-primary">View</button>
-  <%end%>
-</strong>
-</h4>
-</div>
+<%unless gist.nil? || gist.size == 0%>
+    <div class="page-header"><h4><strong>
+      <%=gist[:owner][:login] unless gist[:owner].nil?%>
+      <%= '<Anonymous>' if gist[:owner].nil?%>/
+      <%unless gist[:files].nil?%>
+          <% gist[:files].each { |k,v|%>
+              <%= v[:filename]%>
+          <%}%>
+      <%end%>
+      <%= link_to gist_path(gist[:id]) do%>
+          <button class="btn btn-primary">View</button>
+      <%end%>
+    </strong>
+    </h4>
+    </div>
+<%end%>
