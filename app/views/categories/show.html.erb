@@ -21,15 +21,16 @@
     GISTS:
   </h2>
   </div>
-
-  <%@my_gists.each { |g| %>
-      <%=render partial: 'gists/gist_header', locals: {gist: g}%>
-      <div id="desc" class="row">
-        <%= g[:description]%>
-      </div>
-      <div class="row">
-        <code data-gist-id="<%=g[:id]%>"></code>
-      </div>
-  <%}%>
+  <%unless @my_gists.nil?%>
+      <%@my_gists.each { |g| %>
+          <%=render partial: 'gists/gist_header', locals: {gist: g}%>
+          <div id="desc" class="row">
+            <%= g[:description]%>
+          </div>
+          <div class="row">
+            <code data-gist-id="<%=g[:id]%>"></code>
+          </div>
+      <%}%>
+  <%end%>
 </div>
 
