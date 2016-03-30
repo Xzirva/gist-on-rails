@@ -105,6 +105,6 @@ class SearchController < ApplicationController
   end
 
   def no_specific_params
-    params[:fork_of].nil? && params[:forks].nil? && params[:commented].nil? && params[:categories].nil? && params[:categories].size == 0
+    params[:fork_of].nil? && params[:forks].nil? && params[:commented].nil? && (params[:categories].nil? || params[:categories].size == 0)
   end
 end
