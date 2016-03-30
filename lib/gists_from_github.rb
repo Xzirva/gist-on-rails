@@ -72,7 +72,6 @@ class GistsFromGitHub
   end
 
   def self.get_from_github_with_details(id)
-    byebug
     RestClient.get "#{base_url}/gists/#{id}"
   end
   #def self.reset_cache(resource,expiration)
