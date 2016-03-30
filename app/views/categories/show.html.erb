@@ -23,7 +23,7 @@
   </div>
   <%unless @my_gists.nil? || @my_gists.size == 0%>
       <%@my_gists.each { |g| %>
-          <%unless @g.nil? || @g.size == 0%>
+          <%unless g.nil? || g.size == 0%>
               <%=render partial: 'gists/gist_header', locals: {gist: g}%>
               <div id="desc" class="row">
                 <%= g[:description]%>
