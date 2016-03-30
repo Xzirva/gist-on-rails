@@ -56,7 +56,7 @@ class SearchController < ApplicationController
 
 
     @results.each { |r|
-      unless params[:categories].nil? && params[:categories].size == 0
+      unless params[:categories].nil? || params[:categories].size == 0
         params[:categories].each{ |c|
           check = GistsByCategory.find_by_category_id_and_gist_id(Integer(c,10),r[:id])
           unless check.nil?
