@@ -27,10 +27,19 @@ class GistsFromGitHub
 
   def self.gists_with_details
     Rails.cache.fetch('gists_with_details', expire_in: 1.minutes) do
+
       vgists = gists
       gists_with_d = Array.new
       vgists.each { |g|
         gists_with_d[gists_with_d.size] = JSON.parse(get_from_github_with_details(g[:id]), :symbolize_names => true)
+      }
+      gists_with_d.each { |g|
+        if g[:owner].nil?
+          g[:owner] = {:login => "<Anonymous>"}
+        end
+        if g[:description].nil? || g[:description].size == 0
+          g[:description] = "<Untitled>"
+        end
       }
       gists_with_d
     end
@@ -49,20 +58,10 @@ class GistsFromGitHub
 
   def self.gists_by_description
     Rails.cache.fetch('gists_by_description', expire_in: 1.minutes) do
-      vgists = gists
+      vgists = gists_with_details
       gists_ds = Array.new
       vgists.each { |g|
-        if g[:owner].nil?
-          owner = "Anonymous"
-        else
-          owner = g[:owner][:login]
-        end
-        if g[:description].nil? || g[:description].size == 0
-          description = "Untitled"
-        else
-          description = g[:description]
-        end
-        gists_ds[gists_ds.size] = ["<#{description[0..100]}>... by <#{owner}>", g[:id]]
+        gists_ds[gists_ds.size] = ["#{g[:description][0..100]}... by #{g[:owner][:login]}", g[:id]]
       }
       gists_ds
     end
@@ -73,6 +72,7 @@ class GistsFromGitHub
   end
 
   def self.get_from_github_with_details(id)
+    byebug
     RestClient.get "#{base_url}/gists/#{id}"
   end
   #def self.reset_cache(resource,expiration)

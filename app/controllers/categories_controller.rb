@@ -58,7 +58,6 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update(@params)
-        byebug
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else
