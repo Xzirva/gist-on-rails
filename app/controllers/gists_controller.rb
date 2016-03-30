@@ -25,44 +25,38 @@ class GistsController < ApplicationController
   def tag
     #render json: params
     tag_params = set_tagging_params
-    if tag_params.nil?
-      respond_to do |format|
-        format.html { redirect_to gist_path(@gist[:id]), notice: 'Error: No tagging Parameters' }
-      end
-    else
-      to_be_deleted = Array.new
-      unless @my_categories.nil? || @my_categories.size == 0
-        @my_categories.each { |v|
-          hash = {gist_id: @gist[:id], category_id: v.id}
-          if tag_params.include?(hash)
-            tag_params = tag_params - [hash]
-          else
-            to_be_deleted[to_be_deleted.size] = hash
-          end
-        }
-      end
-      unless to_be_deleted.nil? || to_be_deleted.size == 0
-        to_be_deleted.each { |v|
-          gist_by_cat = GistsByCategory.find_by_category_id_and_gist_id(v[:category_id],v[:gist_id])
-          gist_by_cat.destroy
-        }
-      end
-      unless tag_params.nil? || tag_params.size == 0
-        tag_params.each { |v|
-          gist_by_cat = GistsByCategory.new(category_id: v[:category_id], gist_id: v[:gist_id])
-          unless gist_by_cat.save
-            respond_to do |format|
-              format.html { redirect_to gist_path(@gist[:id]), notice: "Error: Something went wrong: #{gist_by_cat.errors[:base]}" }
-            end
-            return
-          end
-        }
-      end
-      respond_to do |format|
-        format.html { redirect_to gist_path(@gist[:id]), notice: 'The gist was successfully tagged' }
-      end
-
+    to_be_deleted = Array.new
+    unless @my_categories.nil? || @my_categories.size == 0
+      @my_categories.each { |v|
+        hash = {gist_id: @gist[:id], category_id: v.id}
+        if tag_params.include?(hash)
+          tag_params = tag_params - [hash]
+        else
+          to_be_deleted[to_be_deleted.size] = hash
+        end
+      }
     end
+    unless to_be_deleted.nil? || to_be_deleted.size == 0
+      to_be_deleted.each { |v|
+        gist_by_cat = GistsByCategory.find_by_category_id_and_gist_id(v[:category_id],v[:gist_id])
+        gist_by_cat.destroy
+      }
+    end
+    unless tag_params.nil? || tag_params.size == 0
+      tag_params.each { |v|
+        gist_by_cat = GistsByCategory.new(category_id: v[:category_id], gist_id: v[:gist_id])
+        unless gist_by_cat.save
+          respond_to do |format|
+            format.html { redirect_to gist_path(@gist[:id]), notice: "Error: Something went wrong: #{gist_by_cat.errors[:base]}" }
+          end
+          return
+        end
+      }
+    end
+    respond_to do |format|
+      format.html { redirect_to gist_path(@gist[:id]), notice: 'The gist was successfully tagged' }
+    end
+
   end
   # GET /gists/1/edit
   #def edit
@@ -127,6 +121,7 @@ class GistsController < ApplicationController
       }
       gists_by_categories
     end
+    []
   end
   # Never trust parameters from the scary internet, only allow the white list through.
   def gist_params

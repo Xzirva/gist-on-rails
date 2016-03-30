@@ -97,6 +97,7 @@ class CategoriesController < ApplicationController
       }
       gists
     end
+    []
   end
 
   def my_gists
