@@ -22,14 +22,14 @@ class SearchController < ApplicationController
   def search
     if params[:search_query].nil? || params[:search_query].size == 0
       #notice
-      flash[:notice] = 'Error: Query string is empty!'
+      @notice = 'Error: Query string is empty!'
     else
       find(params[:search_query])
       #render json: @results
-      #flash[:notice] = "#{@results.size} result(s) were found"
+      @notice = "#{@results.size} result(s) were found"
       @gists = @results
     end
-    render 'gists/index', notice: "#{@results.size} result(s) were found"
+    render 'gists/index'
   end
 
   def find(value)
@@ -99,8 +99,8 @@ class SearchController < ApplicationController
     else
       find(params[:specific_search_query])
       @gists = specific_search_process
-      #"#{@gists.size} result(s) were found"
-      render 'gists/index', notice: "#{@gists.size} result(s) were found"
+      @notice = "#{@gists.size} result(s) were found"
+      render 'gists/index'
     end
   end
 

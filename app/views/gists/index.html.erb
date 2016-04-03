@@ -6,9 +6,9 @@
   <%end%>
 </div>
 
-<%if flash[:notice]%>
+<%if @notice.nil? %>
     <p id="notice">
-      <%= notice %>
+      <%= @notice %>
     </p>
 <%end%>
 
