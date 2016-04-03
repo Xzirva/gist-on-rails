@@ -13,7 +13,6 @@
 //
 
 //= require jquery.min
-//= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require gist-embed.min
