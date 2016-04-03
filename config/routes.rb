@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'gists#index'
   resources :categories
-  match '/categories_delete',          to: 'categories#destroy',                 via: :post
+  match '/categories_delete',          to: 'categories#destroy',                 via: :get
   resources :gists, only: [:show, :index]
   match '/load_search_data',          to: 'search#load_search_data',          via: :get
   match '/search',                    to: 'search#search',                    via: :post
