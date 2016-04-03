@@ -26,10 +26,10 @@ class SearchController < ApplicationController
     else
       find(params[:search_query])
       #render json: @results
-      flash[:notice] = "#{@results.size} result(s) were found"
+      #flash[:notice] = "#{@results.size} result(s) were found"
       @gists = @results
     end
-    render 'gists/index'
+    render 'gists/index', notice: "#{@results.size} result(s) were found"
   end
 
   def find(value)
@@ -99,8 +99,8 @@ class SearchController < ApplicationController
     else
       find(params[:specific_search_query])
       @gists = specific_search_process
-      flash[:notice] = "#{@gists.size} result(s) were found"
-      render 'gists/index'
+      "#{@gists.size} result(s) were found"
+      render 'gists/index', notice: "#{@gists.size} result(s) were found"
     end
   end
 
