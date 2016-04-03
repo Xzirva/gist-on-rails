@@ -99,7 +99,7 @@ class SearchController < ApplicationController
     else
       find(params[:specific_search_query])
       @gists = specific_search_process
-      "#{@gists.size} result(s) were found"
+      #"#{@gists.size} result(s) were found"
       render 'gists/index', notice: "#{@gists.size} result(s) were found"
     end
   end
