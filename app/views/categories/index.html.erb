@@ -29,7 +29,7 @@
                 <%= link_to 'Edit', edit_category_path(category) %>
               </div>
               <div class="col-sm-4">
-                <%= link_to 'Destroy', categories_delete_path(category)%>
+                <%= link_to 'Destroy', categories_delete_path({id:category.id})%>
               </div>
             </td>
           </tr>
