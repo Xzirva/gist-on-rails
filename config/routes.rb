@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   match '/search',                    to: 'search#search',                    via: :get
   match '/specific_search',           to: 'search#specific_search',           via: :post
   match '/specific_search',           to: 'search#specific_search',           via: :get
-  match 'gists/tag',              to: 'gists#tag',                         via: :post
+  match 'gists/tag',                  to: 'gists#tag',                         via: :post
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
