@@ -13,17 +13,20 @@
 <%=form_tag specific_search_path, method: :post, class: 'form-horizontal' do%>
     <div class="page-header"><h3>Specific Search</h3></div>
     <div class="form-group">
-      <div class="col-sm-2">Rechercher</div>
+      <label class="col-sm-2 control-label">Search query</label>
       <div class="col-sm-5">
         <%= search_field_tag 'specific_search_query','', class: 'form-control'%>
       </div>
       <div class="col-sm-5"></div>
     </div>
     <div class="form-group ">
-      <!--<label class="checkbox-inline"><=#check_box_tag 'public', '1', false%>Public</label>-->
-      <label class="checkbox-inline"><%=check_box_tag 'forks', '1', false %>Has forks</label>
-      <label class="checkbox-inline"><%=check_box_tag 'fork_of', '1', false %>Is fork of another gist</label>
-      <label class="checkbox-inline"><%=check_box_tag 'commented', '1', false%>Has been commented</label>
+      <label class="col-sm-2 control-label">Filters</label>
+      <div class="col-sm-10">
+        <!--<label class="checkbox-inline"><=#check_box_tag 'public', '1', false%>Public</label>-->
+        <label class="checkbox-inline"><%=check_box_tag 'forks', '1', false %>Has forks</label>
+        <label class="checkbox-inline"><%=check_box_tag 'fork_of', '1', false %>Is fork of another gist</label>
+        <label class="checkbox-inline"><%=check_box_tag 'commented', '1', false%>Has been commented</label>
+      </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label">Categories</label>
