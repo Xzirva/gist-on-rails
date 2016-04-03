@@ -6,7 +6,7 @@
   <%end%>
 </div>
 
-<%if @notice.nil? %>
+<%unless @notice.nil? %>
     <p id="notice">
       <%= @notice %>
     </p>
